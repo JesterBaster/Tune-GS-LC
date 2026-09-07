@@ -1,0 +1,4 @@
+# LevelDB compendium databases are binary. Never apply text or EOL conversion:
+# CURRENT and MANIFEST-* are byte-exact and are corrupted by CRLF translation
+# on checkout, which makes the compendium packs unopenable in Foundry.
+packs/** binary

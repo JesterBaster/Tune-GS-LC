@@ -8,6 +8,9 @@
     "maximum": "13"
   },
   "license": "LICENSE.txt",
+  "url": "https://github.com/JesterBaster/Tune-GS-LC",
+  "manifest": "https://raw.githubusercontent.com/JesterBaster/Tune-GS-LC/main/system.json",
+  "download": "https://github.com/JesterBaster/Tune-GS-LC/archive/refs/heads/main.zip",
   "authors": [
     {
       "name": "T",
