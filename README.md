@@ -1,13 +1,14 @@
 # Angels Sword
 
-A custom TTRPG game system for **Foundry VTT v13**.
+A custom TTRPG game system for **Foundry VTT v13 and v14**.
 
 System ID: `angelssword` (two consecutive `s` characters — the folder name must match exactly).
 
 ## Install in Foundry VTT
 
-Foundry must be **version 13**. The manifest declares `minimum: 13` / `maximum: 13`, so
-Foundry flags the system as incompatible on any other generation.
+The manifest declares `minimum: 13`, `verified: 14`, `maximum: 14`, so the system installs
+on both generations. Foundry flags it as incompatible on v15 and later, because the sheets
+still use the ApplicationV1 framework that is scheduled for removal after v14.
 
 ### Option A — install by manifest URL (recommended)
 
@@ -61,6 +62,21 @@ After launching a fresh world, confirm:
   empty by design — they open, they just contain nothing yet.
 - The browser console (F12) shows `Initializing Simple angelssword System` and no red
   errors on load.
+- On the **Attributes** tab of a sheet, each attribute's type dropdown (String / Number /
+  Boolean / Formula / Resource) lists all five options and shows the current one selected.
+  This is the code path that the v14 `select` helper removal broke.
+
+## Upgrading Foundry to v14
+
+If you are moving from v13, note Foundry's own constraints — they are not specific to this
+system:
+
+- v14 requires **Node.js 24** for a self-hosted install.
+- You cannot upgrade in place. Uninstall v13 and do a clean v14 install.
+- **Once a world is opened in v14 it can no longer be opened in v13.** Back up the world
+  first, and consider keeping the v13 install alongside v14 until you are satisfied.
+
+Because this system still supports v13, there is no need to rush the Foundry upgrade.
 
 ## Optional modules
 
