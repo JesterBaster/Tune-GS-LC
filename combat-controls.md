@@ -1,0 +1,21 @@
+# Combat controls — 1.2.3
+
+Basic Light, Heavy and Precise attacks share a chat card with AP and opportunity-attack RP buttons. Light opportunity attacks cost 0 RP; Heavy and Precise cost 1 RP. Both buttons resolve the same accuracy and damage rolls, and resolving either consumes the card. RP uses temporary RP first. Outside an encounter in which the actor has initiative, neither resource is charged. Precise accuracy doubles Focus and its text explains Pinpoint. Opportunity range, trigger, target Guard and Power minimum damage remain manual attack adjudications.
+
+Dodge and Block are the separate reactions. Their cards snapshot current Evasion and Guard for the triggering attack. The initiating player can enter total incoming damage once. Guard is subtracted, with a minimum of 1 for a positive hit after Dodge and 0 after Block; temporary HP absorbs the remainder before HP. Zero incoming damage remains zero. These controls handle ordinary damage; true damage, resistance, piercing and other special effects require separate adjudication.
+
+Initiative no longer submits the full sheet before rolling. Without an encounter it posts the d4 roll to chat. With an encounter it updates existing matching combatants, or adds the actor before rolling. This avoids duplicate actor-only combatants when repeatedly clicking. A standalone roll does not create or start combat.
+
+Speed displays maximum speed in its clickable label and available movement below it. Clicking spends 1 AP and adds maximum speed to the available feet. Combat start and turn changes clear unused movement. During that token's turn, Foundry v13's preMoveToken/moveToken hooks use the actual passed waypoint costs. Overspending is rejected; pending local moves reserve their cost against rapid repeated drags. Teleport/displacement actions follow Foundry's configured movement cost.
+
+The current turn's paths remain highlighted for the token's owner and the GM. The token HUD gains Reverse movement. It traverses the latest recorded path backwards and refunds that move's original cost; a blocked or no-longer-current path cannot be reversed. Movements and reversals append History entries. Only the latest 12 movement-related entries are retained; purchases and other history remain. Reversal is a movement-budget undo: it does not rewind unrelated chat rolls, reactions, traps or region effects. Foundry movement and region processing still runs on the reverse path.
+
+Movement uses the existing owner-side document update architecture. Token movement and the actor's ledger update are separate Foundry writes, not a server transaction. A failed actor update is reported. Simultaneous edits from separate clients and interruptions during persistence need live multiplayer validation.
+
+Opening the race now shows its committed state before an explicit Change race action. Recommitting the identical race/subrace/house is rejected, preserving existing allocations. Proficiencies appear once under Skills, with an edit-mode cog. The editor shows source grants and commits additional proficiency text on field change. Source grants are still removed through their originating race/class records.
+
+The inventory's excessive top space came from Foundry's compatibility rule `body.game .app .flexcol > * { flex: 1; }`. The character header now explicitly opts out of growth; short tabs no longer assign spare height to it.
+
+Verification: resource, progression, skill allocation, sheet controls, module integration, catalog, full-template and new combat-control tests. The grant-removal test runs the real SimpleActor preparation and generated ability/proficiency views against the actual Human and Mage catalog entries. It checks bonuses before and after de-leveling/removal, repeat preparation, and preservation of manual bonuses. A removed breakthrough record is also checked. There is no standalone breakthrough-removal or granted-ability-removal UI; deleting a library reference is not a source-ledger removal. Inventory items do not yet own automated grants.
+
+Live Foundry visual/multiplayer verification was unavailable: the browser's administrative security-policy check failed. No browser bypass was used. Test the highlighted path and HUD reverse button in a scene after reload; scene distances should use feet for the sheet's ft labels.

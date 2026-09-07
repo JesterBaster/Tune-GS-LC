@@ -1,0 +1,127 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+<header class="as-identity"><img src="{{data.img}}" data-edit="img" title="{{data.name}}" width="64" height="64"/>
+<input class="as-character-name" name="name" value="{{data.name}}" aria-label="Character name" {{#unless editMode}}readonly tabindex="-1"{{/unless}}/>
+<div class="as-identity-actions">{{#if isGM}}<button type="button" data-requirements-toggle aria-pressed="{{requirementsAutoMet}}" title="Automatically meet requirements"><i class="fas fa-list-check"></i></button>{{/if}}{{#if isGM}}<button type="button" data-library-open="" title="Browse races, classes, abilities, breakthroughs and items">Library</button>{{/if}}<button type="button" class="as-history-link" data-history-tab aria-label="Progression history"><i class="fas fa-book-open"></i></button><button type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="{{darkMode}}" title="Toggle dark mode"><i class="fas fa-adjust"></i></button>{{#if canInitialize}}<button type="button" data-initialize>Initialize character</button>{{/if}}
+{{#if editable}}<button type="button" data-excel-import title="Import a character from an Excel link or file">Import Excel</button><button type="button" data-as-mode>{{#if editMode}}Finish editing{{else}}Edit character{{/if}}</button>{{/if}}</div></header>
+<nav class="sheet-tabs tabs" data-group="primary" aria-label="Character sheet tabs">
+<a class="item" data-tab="home">Home</a>
+<a class="item" data-tab="classDetails">Class</a>
+<a class="item" data-tab="abilities">Abilities</a>
+<a class="item" data-tab="features">Breakthroughs</a>
+<a class="item" data-tab="inventory">Inventory</a>
+<a class="item" data-tab="description">Events & Sessions</a>
+<a data-tab="history" hidden aria-hidden="true" tabindex="-1">History</a>
+</nav>
+<section class="sheet-body as-tab-content">
+<div class="tab home" data-group="primary" data-tab="home">
+<div class="as-overview">
+<aside class="as-sidebar">
+{{#each asResources}}
+<section class="as-resource-card as-{{key}}"><header><strong>{{label}}</strong>{{#if @root.editMode}}<button type="button" class="as-cog" data-as-resource="{{key}}" title="Configure {{label}}" aria-label="Configure {{label}}"><i class="fas fa-cog"></i></button>{{/if}}</header>
+<div class="as-overlay-meter" style="--as-fill: {{pct}}%; --as-temp-fill: {{hatchPct}}%; --as-temp-visible: {{#if temp}}1{{else}}0{{/if}}"><input type="text" readonly data-resource-entry="{{key}}" data-resource-field="value" value="{{value}}" title="Click to edit: 5 sets; +5 adds; -5 subtracts. Enter or click away to save." aria-label="Current {{label}}"/><span>/</span><strong title="{{formula}}; base {{base}}; maximum with stat bonuses {{max}}; temporary adjustment {{tempmax}}">{{effectiveMax}}</strong>{{#unless isHealth}}{{#if temp}}<span class="as-reserve-total">(+{{temp}})</span>{{/if}}{{/unless}}{{#if isHealth}}<span class="as-temp-overlay" aria-hidden="true"></span>{{/if}}</div>
+{{#if isHealth}}<label class="as-temp-row as-temp-inline">TMP: <input type="text" readonly data-resource-entry="health" data-resource-field="temp" title="5 sets; +5 adds; -5 subtracts. Enter or click away to save. Invalid entries reset to 0." value="{{temp}}" aria-label="Temporary {{label}}"/></label>{{else}}<div class="as-temp-mini" style="--as-temp-fill: {{tempPct}}%" title="{{temp}} temporary {{label}}" aria-label="{{temp}} temporary {{label}}"><button type="button" class="as-temp-plus" data-temp-toggle="{{key}}" aria-label="Adjust temporary {{label}}" aria-expanded="{{tempExpanded}}">+</button><span class="as-temp-mini-track"><span class="as-temp-mini-fill"></span></span></div>
+{{#if tempExpanded}}<div class="as-temp-adjust"><label>{{label}} TEMP: {{temp}}<input type="text" data-temp-delta="{{key}}" placeholder="5 sets; +5 / -3 adjusts" aria-label="Temporary {{label}} adjustment"/></label><button type="button" data-temp-apply="{{key}}">Apply</button></div>{{/if}}{{/if}}</section>
+{{/each}}
+<section class="as-resource-card as-ap"><header><strong>AP</strong></header>
+<div class="as-ap-controls"><button type="button" class="as-temp-ap-toggle" data-toggle-temp-ap aria-label="{{#if ap.expanded}}Collapse{{else}}Expand{{/if}} temporary AP" aria-expanded="{{ap.expanded}}">{{#if ap.expanded}}−{{else}}+{{/if}}</button><div class="as-pips" aria-label="Action points">{{#each ap.dots}}<button type="button" data-ap-dot="{{index}}" class="as-pip {{#if filled}}filled{{/if}}" aria-label="AP circle {{index}}: {{#if filled}}clear this circle and those after it{{else}}fill through this circle{{/if}}"></button>{{/each}}</div></div>
+{{#if ap.expanded}}<div class="as-temp-ap-label">TEMP AP</div><div class="as-pips as-temp-pips" aria-label="Temporary action points">{{#each ap.tempDots}}<button type="button" data-temp-ap-dot="{{index}}" class="as-pip {{#if filled}}filled{{/if}}" aria-label="AP circle {{index}}: {{#if filled}}clear this circle and those after it{{else}}fill through this circle{{/if}}"></button>{{/each}}</div>{{/if}}</section>
+<section class="as-race-card"><h2>Race</h2><button type="button" data-race-change>{{raceName}}{{#if subraceName}} · {{subraceName}}{{/if}}</button></section></aside>
+<section class="as-skill-list"><header class="as-section-heading"><h2>Skills</h2><button type="button" class="as-skill-pool" data-skill-pool title="Spend stored skill points">Pool: {{skillPool}}</button>{{#if editMode}}<button type="button" data-as-section="skills" aria-label="Edit skills"><i class="fas fa-cog"></i></button>{{/if}}</header>
+{{#each playerSkills}}<div class="as-skill-row"><button type="button" data-skill-roll="{{key}}" title="{{stat}} base {{statBase}} + sourced bonuses {{bonus}}">{{label}}{{#if hasExpertise}}<span class="as-expertise-mark">*</span>{{/if}}</button><span class="as-skill-leader" aria-hidden="true"></span><strong>{{signedTotal}}</strong></div>{{/each}}
+{{{proficiencies}}}</section>
+<main class="as-stat-panel">
+<section class="as-derived-panel">
+{{#if editMode}}<button type="button" class="as-cog as-derived-cog" data-combat-edit aria-label="Edit derived stats and Spirit Core"><i class="fas fa-cog"></i></button>{{/if}}
+<header class="as-derived-heading"><div><h2>Derived stats</h2></div>
+<div class="as-spirit-core"><div class="as-core-heading"><strong>Spirit Core</strong><span>{{spiritCore.value}}</span></div><div class="as-core-bar" role="progressbar" aria-label="Spirit Core progress" aria-valuemin="0" aria-valuemax="{{spiritCore.target}}" aria-valuenow="{{spiritCore.progressValue}}" style="--core-fill:{{spiritCore.pct}}%"><small title="Total EXP">{{spiritCore.total}} total EXP</small></div><div class="as-core-exp"><span>EXP available</span><strong>{{spiritCore.exp}}</strong></div></div></header>
+<div class="as-derived-grid">
+<div><span>Evasion</span><strong>{{derived.evasion}}</strong></div><div><span>Evasion (Dodge)</span><strong>{{derived.dodge}}</strong></div>
+<div><span>Guard</span><strong>{{derived.guard}}</strong></div><div><span>Guard (Block)</span><strong>{{derived.block}}</strong></div>
+<div><button type="button" data-initiative-roll title="Roll 1d4 + Initiative"><svg class="as-d4" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 23 21H1Z" fill="none" stroke="currentColor" stroke-width="2"/><text x="12" y="18" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">4</text></svg> Initiative</button><strong>1d4 + {{derived.initiative}}</strong></div><div class="as-speed"><button type="button" data-speed-move title="Spend 1 AP to gain your Speed in movement">Speed: {{derived.speed}}</button><strong>{{movementAvailable}} ft</strong></div>
+<div><span>Potency</span><strong>{{derived.potency}}</strong></div><div><button type="button" data-save-roll title="Roll 2d10 + Save">Save</button><strong>{{derived.save}}</strong></div>
+</div></section>
+
+<section><header class="as-section-heading"><h2>Primary stats</h2>{{#if editMode}}<button type="button" data-as-section="primary" aria-label="Edit primary stats"><i class="fas fa-cog"></i></button>{{/if}}</header>
+<div class="as-stat-grid primary">{{#each primaryStats}}<section class="as-stat-card"><h3>{{label}}</h3><strong>{{total}}</strong></section>{{/each}}</div></section>
+<section><header class="as-section-heading"><h2>Secondary stats</h2>{{#if editMode}}<button type="button" data-as-section="secondary" aria-label="Edit secondary stats"><i class="fas fa-cog"></i></button>{{/if}}</header>
+<div class="as-stat-grid secondary">{{#each secondaryStats}}<section class="as-stat-card"><h3>{{label}}</h3><strong>{{total}}</strong></section>{{/each}}</div></section>
+<section class="as-home-actions"><h2>Actions</h2><label>Weapon<select data-action-weapon>{{#each actionWeapons}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{else}}<option value="one">One-handed / ranged</option><option value="two">Two-handed melee</option>{{/each}}</select></label><button type="button" data-basic-attack="light">Light Attack · 1 AP</button><button type="button" data-basic-attack="heavy">Heavy Attack · 2 AP</button><button type="button" data-basic-attack="precise">Precise Attack · 2 AP</button></section><section class="as-home-reactions"><h2>Reactions</h2>{{#each reactions}}<button type="button" data-basic-reaction="{{id}}" title="{{text}}">{{name}} · {{cost}} RP</button>{{/each}}<label>Ability reaction<select aria-label="Ability reaction"><option value="">—</option></select></label></section></main>
+</div>
+</div>
+        {{#each characterSections}}
+        <div class="tab character {{key}}" data-group="primary" data-tab="{{key}}">
+          <section class="as-tab-panel as-character-section">
+            <header class="as-section-heading"><h2>{{label}}</h2>{{#if @root.isGM}}<button type="button" data-library-open="{{libraryCategory}}">Browse library</button>{{/if}}</header>
+            <div class="as-library-pins">{{#each references}}<span><button type="button" data-library-reference="{{id}}">{{name}}</button>{{#if @root.editMode}}<button type="button" data-library-remove="{{id}}" aria-label="Remove reference to {{name}}">×</button>{{/if}}</span>{{/each}}</div>
+            {{{progressionHTML}}}
+            {{editor html target=path button=true editable=@root.editMode engine="prosemirror"}}
+          </section>
+        </div>
+        {{/each}}
+        <div class="tab inventory items" data-group="primary" data-tab="inventory">
+            <section class="as-tab-panel">
+            <header class="as-section-heading as-inventory-navigation"><nav aria-label="Inventory sections"><button type="button" data-inventory-tab="loadout">Combat loadout</button><button type="button" data-inventory-tab="inventory">Inventory</button></nav>{{#if isGM}}<button type="button" data-library-open="item">Browse library</button>{{/if}}{{#if editable}}<button type="button" data-inventory-add>Add item</button><button type="button" data-inventory-custom>Custom item</button>{{/if}}</header>
+            <div data-inventory-panel="loadout">{{{loadoutHTML}}}</div>
+            <div data-inventory-panel="inventory" hidden>
+            {{#if editable}}<button type="button" class="as-item-image-sync" data-inventory-images>Use library images for items with default icons</button>{{/if}}
+            <div class="as-library-pins">{{#each itemReferences}}<span><button type="button" data-library-reference="{{id}}">{{name}}</button>{{#if @root.editMode}}<button type="button" data-library-remove="{{id}}" aria-label="Remove reference to {{name}}">×</button>{{/if}}</span>{{/each}}</div>
+            <p class="as-inventory-totals">Carried burden: {{inventorySummary.burden}} / {{inventorySummary.limit}}{{#if inventorySummary.rooted}} · Rooted{{/if}} · Item value: {{inventorySummary.value}} Clim</p><ol class="item-list">
+                {{#each data.items as |item id|}}
+                <li class="item as-inventory-row" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <div class="as-item-label"><h4 class="item-name">{{item.name}}</h4><small>{{item.system.kind}} · {{item.system.location}}{{#if item.system.equipped}} · Equipped{{/if}}</small></div><label class="as-item-quantity">Qty <input type="number" min="0" step="any" data-item-quantity="{{item._id}}" value="{{item.system.quantity}}" {{#unless @root.editable}}readonly{{/unless}}></label>
+                    {{#if @root.editable}}<button type="button" data-use-action="{{item._id}}" title="Post this item and resolve its AP cost in chat">Use</button>{{/if}}
+                    {{!-- Iterate through all attributes on the item and output buttons for any that are formula. --}}
+                    <div class="item-buttons">
+                        {{#each item.system.attributes as |itemAttr key|}}
+                        {{#if itemAttr.dtype}}
+                            {{#if itemAttr.isFormula}}
+                                {{!-- Use the items.name.key format for shorthand. --}}
+                                {{#if ../../shorthand}}
+                                <button type="button" class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}" data-label="{{ itemAttr.label }}"
+                                    title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+                                {{!-- Use the items.name.attributes.key.value format otherwise. --}}
+                                {{else}}
+                                <button type="button" class="item-button rollable"
+                                    data-roll="@items.{{slugify item.name}}.attributes.{{key}}.value" data-label="{{ itemAttr.label }}"
+                                    title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+                                {{/if}}
+                            {{/if}}
+                        {{else}}
+                            {{#each itemAttr as |itemGroupedAttr groupedKey|}}
+                                {{#if itemGroupedAttr.isFormula}}
+                                    {{!-- Use the items.name.key format for shorthand. --}}
+                                    {{#if ../../../shorthand}}
+                                    <button type="button" class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}.{{groupedKey}}" data-label="{{ itemGroupedAttr.label }}"
+                                        title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+                                    {{!-- Use the items.name.attributes.key.value format otherwise. --}}
+                                    {{else}}
+                                    <button type="button" class="item-button rollable"
+                                        data-roll="@items.{{slugify item.name}}.attributes.{{key}}.{{groupedKey}}.value" data-label="{{ itemGroupedAttr.label }}"
+                                        title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+                                    {{/if}}
+                                {{/if}}
+                            {{/each}}
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                    {{#if @root.editMode}}<div class="item-controls">
+                        <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit"><i class="fas fa-edit"></i></a>
+                        <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                    </div>{{/if}}
+                </li>
+                {{else}}<li class="as-empty-state">No items yet.</li>{{/each}}
+            </ol>
+            </div>
+            </section>
+        </div>
+
+        <div class="tab description" data-group="primary" data-tab="description">
+            <section class="as-tab-panel">{{{advancement.eventHTML}}}<h2>Journals</h2>{{{advancement.journalHTML}}}<header class="as-section-heading"><h2>Backstory</h2></header>
+            {{editor biographyHTML target="system.biography" button=true editable=editMode engine="prosemirror"}}
+            </section>
+        </div>
+
+<div class="tab character" data-group="primary" data-tab="history"><section class="as-tab-panel"><h2>History</h2>{{{advancement.historyHTML}}}</section></div>
+</section>
+</form>

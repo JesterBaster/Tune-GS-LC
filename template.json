@@ -1,0 +1,829 @@
+{
+  "Actor": {
+    "types": [
+      "character",
+      "hero",
+      "villain",
+      "pawn"
+    ],
+    "htmlFields": [
+      "biography"
+    ],
+    "character": {
+      "biography": "",
+      "health": {
+        "value": 10,
+        "min": 0,
+        "max": 10
+      },
+      "power": {
+        "value": 5,
+        "min": 0,
+        "max": 5
+      },
+      "attributes": {},
+      "groups": {},
+      "primary": {
+        "focus": {
+          "base": 0,
+          "bonus": 0
+        },
+        "power": {
+          "base": 0,
+          "bonus": 0
+        },
+        "agility": {
+          "base": 0,
+          "bonus": 0
+        },
+        "toughness": {
+          "base": 0,
+          "bonus": 0
+        }
+      },
+      "secondary": {
+        "fitness": {
+          "base": 0,
+          "bonus": 0
+        },
+        "cunning": {
+          "base": 0,
+          "bonus": 0
+        },
+        "reason": {
+          "base": 0,
+          "bonus": 0
+        },
+        "awareness": {
+          "base": 0,
+          "bonus": 0
+        },
+        "presence": {
+          "base": 0,
+          "bonus": 0
+        }
+      },
+      "skills": {
+        "athletics": {
+          "points": 0,
+          "bonus": 0
+        },
+        "riding": {
+          "points": 0,
+          "bonus": 0
+        },
+        "deception": {
+          "points": 0,
+          "bonus": 0
+        },
+        "roguecraft": {
+          "points": 0,
+          "bonus": 0
+        },
+        "stealth": {
+          "points": 0,
+          "bonus": 0
+        },
+        "appraise": {
+          "points": 0,
+          "bonus": 0
+        },
+        "artifice": {
+          "points": 0,
+          "bonus": 0
+        },
+        "common_knowledge": {
+          "points": 0,
+          "bonus": 0
+        },
+        "flight": {
+          "points": 0,
+          "bonus": 0
+        },
+        "history": {
+          "points": 0,
+          "bonus": 0
+        },
+        "linguistics": {
+          "points": 0,
+          "bonus": 0
+        },
+        "magic": {
+          "points": 0,
+          "bonus": 0
+        },
+        "medicine": {
+          "points": 0,
+          "bonus": 0
+        },
+        "religion": {
+          "points": 0,
+          "bonus": 0
+        },
+        "insight": {
+          "points": 0,
+          "bonus": 0
+        },
+        "perception": {
+          "points": 0,
+          "bonus": 0
+        },
+        "survival": {
+          "points": 0,
+          "bonus": 0
+        },
+        "animal_husbandry": {
+          "points": 0,
+          "bonus": 0
+        },
+        "art": {
+          "points": 0,
+          "bonus": 0
+        },
+        "intimidation": {
+          "points": 0,
+          "bonus": 0
+        },
+        "negotiation": {
+          "points": 0,
+          "bonus": 0
+        }
+      },
+      "resources": {
+        "health": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "mp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "rp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "ap": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        }
+      },
+      "combat": {
+        "equipmentGuard": 0,
+        "armorBlock": 0,
+        "shieldBlock": 0,
+        "evasionBonus": 0,
+        "dodgeBonus": 0,
+        "guardBonus": 0,
+        "blockBonus": 0,
+        "initiativeBonus": 0,
+        "speedBase": 20,
+        "speedBonus": 0,
+        "potencyBonus": 0,
+        "saveBonus": 0
+      },
+      "progression": {
+        "exp": 0,
+        "expSpent": 0
+      }
+    },
+    "hero": {
+      "biography": "",
+      "health": {
+        "value": 10,
+        "min": 0,
+        "max": 10
+      },
+      "power": {
+        "value": 5,
+        "min": 0,
+        "max": 5
+      },
+      "attributes": {},
+      "groups": {},
+      "primary": {
+        "focus": {
+          "base": 0,
+          "bonus": 0
+        },
+        "power": {
+          "base": 0,
+          "bonus": 0
+        },
+        "agility": {
+          "base": 0,
+          "bonus": 0
+        },
+        "toughness": {
+          "base": 0,
+          "bonus": 0
+        }
+      },
+      "secondary": {
+        "fitness": {
+          "base": 0,
+          "bonus": 0
+        },
+        "cunning": {
+          "base": 0,
+          "bonus": 0
+        },
+        "reason": {
+          "base": 0,
+          "bonus": 0
+        },
+        "awareness": {
+          "base": 0,
+          "bonus": 0
+        },
+        "presence": {
+          "base": 0,
+          "bonus": 0
+        }
+      },
+      "skills": {
+        "athletics": {
+          "points": 0,
+          "bonus": 0
+        },
+        "riding": {
+          "points": 0,
+          "bonus": 0
+        },
+        "deception": {
+          "points": 0,
+          "bonus": 0
+        },
+        "roguecraft": {
+          "points": 0,
+          "bonus": 0
+        },
+        "stealth": {
+          "points": 0,
+          "bonus": 0
+        },
+        "appraise": {
+          "points": 0,
+          "bonus": 0
+        },
+        "artifice": {
+          "points": 0,
+          "bonus": 0
+        },
+        "common_knowledge": {
+          "points": 0,
+          "bonus": 0
+        },
+        "flight": {
+          "points": 0,
+          "bonus": 0
+        },
+        "history": {
+          "points": 0,
+          "bonus": 0
+        },
+        "linguistics": {
+          "points": 0,
+          "bonus": 0
+        },
+        "magic": {
+          "points": 0,
+          "bonus": 0
+        },
+        "medicine": {
+          "points": 0,
+          "bonus": 0
+        },
+        "religion": {
+          "points": 0,
+          "bonus": 0
+        },
+        "insight": {
+          "points": 0,
+          "bonus": 0
+        },
+        "perception": {
+          "points": 0,
+          "bonus": 0
+        },
+        "survival": {
+          "points": 0,
+          "bonus": 0
+        },
+        "animal_husbandry": {
+          "points": 0,
+          "bonus": 0
+        },
+        "art": {
+          "points": 0,
+          "bonus": 0
+        },
+        "intimidation": {
+          "points": 0,
+          "bonus": 0
+        },
+        "negotiation": {
+          "points": 0,
+          "bonus": 0
+        }
+      },
+      "resources": {
+        "health": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "mp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "rp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "ap": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        }
+      },
+      "combat": {
+        "equipmentGuard": 0,
+        "armorBlock": 0,
+        "shieldBlock": 0,
+        "evasionBonus": 0,
+        "dodgeBonus": 0,
+        "guardBonus": 0,
+        "blockBonus": 0,
+        "initiativeBonus": 0,
+        "speedBase": 20,
+        "speedBonus": 0,
+        "potencyBonus": 0,
+        "saveBonus": 0
+      },
+      "progression": {
+        "exp": 0,
+        "expSpent": 0
+      }
+    },
+    "villain": {
+      "biography": "",
+      "health": {
+        "value": 10,
+        "min": 0,
+        "max": 10
+      },
+      "power": {
+        "value": 5,
+        "min": 0,
+        "max": 5
+      },
+      "attributes": {},
+      "groups": {},
+      "primary": {
+        "focus": {
+          "base": 0,
+          "bonus": 0
+        },
+        "power": {
+          "base": 0,
+          "bonus": 0
+        },
+        "agility": {
+          "base": 0,
+          "bonus": 0
+        },
+        "toughness": {
+          "base": 0,
+          "bonus": 0
+        }
+      },
+      "secondary": {
+        "fitness": {
+          "base": 0,
+          "bonus": 0
+        },
+        "cunning": {
+          "base": 0,
+          "bonus": 0
+        },
+        "reason": {
+          "base": 0,
+          "bonus": 0
+        },
+        "awareness": {
+          "base": 0,
+          "bonus": 0
+        },
+        "presence": {
+          "base": 0,
+          "bonus": 0
+        }
+      },
+      "skills": {
+        "athletics": {
+          "points": 0,
+          "bonus": 0
+        },
+        "riding": {
+          "points": 0,
+          "bonus": 0
+        },
+        "deception": {
+          "points": 0,
+          "bonus": 0
+        },
+        "roguecraft": {
+          "points": 0,
+          "bonus": 0
+        },
+        "stealth": {
+          "points": 0,
+          "bonus": 0
+        },
+        "appraise": {
+          "points": 0,
+          "bonus": 0
+        },
+        "artifice": {
+          "points": 0,
+          "bonus": 0
+        },
+        "common_knowledge": {
+          "points": 0,
+          "bonus": 0
+        },
+        "flight": {
+          "points": 0,
+          "bonus": 0
+        },
+        "history": {
+          "points": 0,
+          "bonus": 0
+        },
+        "linguistics": {
+          "points": 0,
+          "bonus": 0
+        },
+        "magic": {
+          "points": 0,
+          "bonus": 0
+        },
+        "medicine": {
+          "points": 0,
+          "bonus": 0
+        },
+        "religion": {
+          "points": 0,
+          "bonus": 0
+        },
+        "insight": {
+          "points": 0,
+          "bonus": 0
+        },
+        "perception": {
+          "points": 0,
+          "bonus": 0
+        },
+        "survival": {
+          "points": 0,
+          "bonus": 0
+        },
+        "animal_husbandry": {
+          "points": 0,
+          "bonus": 0
+        },
+        "art": {
+          "points": 0,
+          "bonus": 0
+        },
+        "intimidation": {
+          "points": 0,
+          "bonus": 0
+        },
+        "negotiation": {
+          "points": 0,
+          "bonus": 0
+        }
+      },
+      "resources": {
+        "health": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "mp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "rp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "ap": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        }
+      },
+      "combat": {
+        "equipmentGuard": 0,
+        "armorBlock": 0,
+        "shieldBlock": 0,
+        "evasionBonus": 0,
+        "dodgeBonus": 0,
+        "guardBonus": 0,
+        "blockBonus": 0,
+        "initiativeBonus": 0,
+        "speedBase": 20,
+        "speedBonus": 0,
+        "potencyBonus": 0,
+        "saveBonus": 0
+      },
+      "progression": {
+        "exp": 0,
+        "expSpent": 0
+      }
+    },
+    "pawn": {
+      "biography": "",
+      "health": {
+        "value": 10,
+        "min": 0,
+        "max": 10
+      },
+      "power": {
+        "value": 5,
+        "min": 0,
+        "max": 5
+      },
+      "attributes": {},
+      "groups": {},
+      "primary": {
+        "focus": {
+          "base": 0,
+          "bonus": 0
+        },
+        "power": {
+          "base": 0,
+          "bonus": 0
+        },
+        "agility": {
+          "base": 0,
+          "bonus": 0
+        },
+        "toughness": {
+          "base": 0,
+          "bonus": 0
+        }
+      },
+      "secondary": {
+        "fitness": {
+          "base": 0,
+          "bonus": 0
+        },
+        "cunning": {
+          "base": 0,
+          "bonus": 0
+        },
+        "reason": {
+          "base": 0,
+          "bonus": 0
+        },
+        "awareness": {
+          "base": 0,
+          "bonus": 0
+        },
+        "presence": {
+          "base": 0,
+          "bonus": 0
+        }
+      },
+      "skills": {
+        "athletics": {
+          "points": 0,
+          "bonus": 0
+        },
+        "riding": {
+          "points": 0,
+          "bonus": 0
+        },
+        "deception": {
+          "points": 0,
+          "bonus": 0
+        },
+        "roguecraft": {
+          "points": 0,
+          "bonus": 0
+        },
+        "stealth": {
+          "points": 0,
+          "bonus": 0
+        },
+        "appraise": {
+          "points": 0,
+          "bonus": 0
+        },
+        "artifice": {
+          "points": 0,
+          "bonus": 0
+        },
+        "common_knowledge": {
+          "points": 0,
+          "bonus": 0
+        },
+        "flight": {
+          "points": 0,
+          "bonus": 0
+        },
+        "history": {
+          "points": 0,
+          "bonus": 0
+        },
+        "linguistics": {
+          "points": 0,
+          "bonus": 0
+        },
+        "magic": {
+          "points": 0,
+          "bonus": 0
+        },
+        "medicine": {
+          "points": 0,
+          "bonus": 0
+        },
+        "religion": {
+          "points": 0,
+          "bonus": 0
+        },
+        "insight": {
+          "points": 0,
+          "bonus": 0
+        },
+        "perception": {
+          "points": 0,
+          "bonus": 0
+        },
+        "survival": {
+          "points": 0,
+          "bonus": 0
+        },
+        "animal_husbandry": {
+          "points": 0,
+          "bonus": 0
+        },
+        "art": {
+          "points": 0,
+          "bonus": 0
+        },
+        "intimidation": {
+          "points": 0,
+          "bonus": 0
+        },
+        "negotiation": {
+          "points": 0,
+          "bonus": 0
+        }
+      },
+      "resources": {
+        "health": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "mp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "rp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        },
+        "ap": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "tempmax": 0
+        }
+      },
+      "combat": {
+        "equipmentGuard": 0,
+        "armorBlock": 0,
+        "shieldBlock": 0,
+        "evasionBonus": 0,
+        "dodgeBonus": 0,
+        "guardBonus": 0,
+        "blockBonus": 0,
+        "initiativeBonus": 0,
+        "speedBase": 20,
+        "speedBonus": 0,
+        "potencyBonus": 0,
+        "saveBonus": 0
+      },
+      "progression": {
+        "exp": 0,
+        "expSpent": 0
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "item",
+      "weapon",
+      "spell"
+    ],
+    "htmlFields": [
+      "description"
+    ],
+    "item": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "attributes": {},
+      "groups": {},
+      "kind": "Equipment",
+      "price": 0,
+      "location": "Carried",
+      "equipped": false,
+      "apCost": null,
+      "damage": "",
+      "heavyDamage": "",
+      "range": "",
+      "guard": 0,
+      "block": 0,
+      "evasionPenalty": 0,
+      "initiativePenalty": 0,
+      "speedPenalty": 0,
+      "handedness": "one",
+      "storageCategory": ""
+    },
+    "weapon": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "attributes": {},
+      "groups": {},
+      "kind": "Weapon",
+      "price": 0,
+      "location": "Carried",
+      "equipped": false,
+      "apCost": null,
+      "damage": "",
+      "heavyDamage": "",
+      "range": "",
+      "guard": 0,
+      "block": 0,
+      "evasionPenalty": 0,
+      "initiativePenalty": 0,
+      "speedPenalty": 0,
+      "handedness": "one",
+      "storageCategory": ""
+    },
+    "spell": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "attributes": {},
+      "groups": {},
+      "kind": "Spell",
+      "price": 0,
+      "location": "Carried",
+      "equipped": false,
+      "apCost": null,
+      "damage": "",
+      "heavyDamage": "",
+      "range": "",
+      "guard": 0,
+      "block": 0,
+      "evasionPenalty": 0,
+      "initiativePenalty": 0,
+      "speedPenalty": 0,
+      "handedness": "one",
+      "storageCategory": ""
+    }
+  }
+}

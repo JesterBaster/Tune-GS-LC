@@ -1,0 +1,386 @@
+.angelssword {
+  .window-content {
+    height: 100%;
+    padding: 5px;
+    overflow-y: hidden;
+  }
+
+  form {
+    height: 100%;
+  }
+
+  .sheet-header {
+    flex: 0 0 100px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+
+    .profile-img {
+      flex: 0 0 100px;
+      height: 100px;
+      margin-right: 10px;
+    }
+
+    .header-fields {
+      flex: 1;
+      height: 100px;
+    }
+
+    h1.charname {
+      height: 50px;
+      padding: 0px;
+      margin: 5px 0;
+      border-bottom: 0;
+      input {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+    }
+  }
+
+  .resource {
+    width: 50%;
+    height: 40px;
+    margin-top: 10px;
+    float: left;
+    text-align: center;
+    input {
+      width: 100px;
+      height: 28px;
+    }
+  }
+
+  /* Sheet Tabs */
+  .tabs {
+    flex: 0 0 40px;
+    border-top: 1px solid #AAA;
+    border-bottom: 1px solid #AAA;
+
+    .item {
+      line-height: 40px;
+      font-weight: bold;
+    }
+
+    .item.active {
+      text-decoration: underline;
+      text-shadow: none;
+    }
+  }
+
+  .sheet-body {
+    overflow: hidden;
+    .tab {
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+
+  .editor, .editor-content {
+    height: 100%;
+  }
+
+  /* Items List */
+  .item-list {
+    list-style: none;
+    margin: 7px 0;
+    padding: 0;
+    overflow-y: auto;
+
+    .item {
+      min-height: 30px;
+      line-height: 24px;
+      padding: 3px 0;
+      border-bottom: 1px solid #BBB;
+      align-items: stretch;
+
+      img {
+        flex: 0 0 24px;
+        margin-right: 5px;
+      }
+    }
+
+    .item-name {
+      margin: 0;
+    }
+
+    .item-controls {
+      flex: 0 0 36px;
+    }
+
+    .item-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      flex: 2;
+      justify-content: flex-start;
+    }
+
+    .item-button {
+      line-height: 1;
+      font-size: 11px;
+      flex: none;
+      width: auto;
+    }
+  }
+
+  /* Attributes */
+  .attributes {
+    position: relative;
+
+    .attribute-control,
+    .group-control {
+      flex: 0 0 20px;
+      text-align: center;
+      line-height: 28px;
+      border: none;
+    }
+
+    .attribute-roll {
+      flex: 0 0 20px;
+      text-align: center;
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .group-prefix {
+      height: 31px;
+      margin-right: 10px;
+    }
+
+    .button {
+      width: 100%;
+      flex: 1;
+      margin: 0;
+      background: rgba(0, 0, 0, 0.1);
+      border: 2px groove #f0f0e0;
+      border-radius: 3px;
+      font-size: 14px;
+      line-height: 28px;
+      display: block;
+    }
+
+    .attribute-key {
+      background: transparent;
+      border: none;
+    }
+  }
+
+  .attributes-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 0 5px;
+    margin: 5px 0;
+    background: #cfcdc2;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .attributes-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li > * {
+      margin: 0 3px;
+      height: 28px;
+      line-height: 24px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid #AAA;
+    }
+
+    .attribute-col {
+      label {
+        font-size: 10px;
+        text-align: center;
+        line-height: 1;
+      }
+
+      input {
+        font-size: 11px;
+        text-align: center;
+        line-height: 1;
+        height: 50%;
+      }
+    }
+  }
+
+  .attribute,
+  .group-header {
+    input[type="text"] {
+      &::placeholder {
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+      }
+
+      &:focus::placeholder {
+        opacity: 1;
+      }
+    }
+  }
+
+  .group-controls {
+    margin: 5px;
+  }
+
+  .groups-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .group {
+    margin: 5px 0 0;
+    padding: 0;
+  }
+
+  .group-header {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    padding: 2px 5px;
+  }
+
+  .group-key,
+  .group-label {
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    background: transparent;
+    border-radius: 0;
+    margin-right: 6px;
+  }
+
+  .group-key {
+    opacity: 0.75;
+  }
+
+  .group-label {
+    flex: 2;
+  }
+
+  .group-dtype {
+    height: 24px;
+    flex: 0 0 116px;
+    margin: 0 5px;
+  }
+}
+
+.angelssword.sheet.actor {
+  min-width: 560px;
+  min-height: 420px;
+}
+
+
+.angelssword.sheet.item {
+  min-width: 460px;
+  min-height: 400px;
+}
+
+/* Actor resource layout repair: allow four resources and scroll the full sheet. */
+.angelssword.sheet.actor .window-content {
+  min-height: 0;
+  overflow-y: auto;
+}
+.angelssword.sheet.actor form {
+  height: auto;
+  min-height: 100%;
+  flex: 0 0 auto;
+}
+.angelssword.sheet.actor .sheet-header {
+  flex: 0 0 auto;
+  overflow: visible;
+  align-items: flex-start;
+}
+.angelssword.sheet.actor .sheet-header .header-fields {
+  height: auto;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.angelssword.sheet.actor .sheet-header h1.charname {
+  grid-column: 1 / -1;
+}
+.angelssword.sheet.actor .resource {
+  float: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 4px;
+}
+.angelssword.sheet.actor .resource label {
+  grid-column: 1 / -1;
+}
+.angelssword.sheet.actor .resource input {
+  width: 100%;
+  min-width: 0;
+}
+.angelssword.sheet.actor .sheet-body {
+  flex: 1 0 auto;
+  min-height: 240px;
+  overflow: visible;
+}
+.angelssword.sheet.actor .sheet-body .tab {
+  height: auto;
+  overflow: visible;
+}
+.angelssword.sheet.actor .editor {
+  min-height: 220px;
+}
+
+/* Resource meters and configuration controls, inspired by the 5e HP interface. */
+.angelssword.sheet.actor .as-mode { grid-column: 1 / -1; width: auto; justify-self: end; }
+.angelssword.sheet.actor .as-resource { display: flex; flex-direction: column; gap: 5px; padding: 8px; border: 1px solid #8c7957; border-radius: 6px; background: rgba(255,255,255,.2); }
+.angelssword.sheet.actor .as-resource > label { display: flex; align-items: center; justify-content: space-between; width: 100%; font-weight: bold; }
+.angelssword.sheet.actor .as-cog { width: 26px; height: 26px; padding: 0; line-height: 24px; border: 0; background: transparent; }
+.angelssword.sheet.actor .as-meter { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 5px; width: 100%; padding: 4px; border-radius: 4px; background: linear-gradient(to right, #446b5960 var(--as-fill), #00000012 var(--as-fill)); }
+.angelssword.sheet.actor .as-temp { display: flex; align-items: center; gap: 8px; width: 100%; font-size: 11px; }
+.angelssword.sheet.actor .as-temp input { flex: 1; width: 0; }
+
+/* Player overview: stacked resources and skills beside primary/secondary stats. */
+.angelssword.sheet.actor { min-width: 640px; }
+.angelssword.sheet.actor .as-identity { display:flex; align-items:center; gap:12px; margin: 8px 0 18px; }
+.angelssword.sheet.actor .as-identity > input { font-size:26px; height:44px; flex:1; min-width:0; }
+.angelssword.sheet.actor .as-identity > button { width:auto; }
+.angelssword.sheet.actor .as-overview { display:grid; grid-template-columns:230px minmax(0,1fr); gap:20px; align-items:start; }
+.angelssword.sheet.actor .as-sidebar { display:flex; flex-direction:column; gap:12px; }
+.angelssword.sheet.actor .as-resource-card { border:1px solid #93805e; border-radius:8px; padding:10px; background:#ffffff30; }
+.angelssword.sheet.actor .as-resource-card header { display:flex; align-items:center; justify-content:space-between; min-height:28px; }
+.angelssword.sheet.actor .as-overlay-meter { --as-color:#246a3e; display:flex; justify-content:center; align-items:center; gap:8px; border-radius:6px; min-height:40px; color:#fff; background:linear-gradient(to right,var(--as-color) var(--as-fill),#272a30 var(--as-fill)); font-size:20px; font-weight:bold; }
+.angelssword.sheet.actor .as-mp .as-overlay-meter { --as-color:#235ca4; }
+.angelssword.sheet.actor .as-rp .as-overlay-meter { --as-color:#a53139; }
+.angelssword.sheet.actor .as-overlay-meter input { width:64px; color:inherit; font:inherit; text-align:right; border:0; background:transparent; box-shadow:none; }
+.angelssword.sheet.actor .as-temp-row { display:flex; justify-content:flex-end; align-items:center; gap:8px; font-size:10px; margin-top:5px; }
+.angelssword.sheet.actor .as-temp-row input { width:55px; }
+.angelssword.sheet.actor .as-pips { display:flex; flex-wrap:wrap; gap:9px; padding:10px 0; }
+.angelssword.sheet.actor .as-pip { width:20px; height:20px; flex:0 0 20px; border:2px solid #765a22; border-radius:50%; background:transparent; padding:0; margin:0; }
+.angelssword.sheet.actor .as-pip.filled { background:#c69335; }
+.angelssword.sheet.actor .as-stat-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-bottom:20px; }
+.angelssword.sheet.actor .as-stat-card { text-align:center; border:1px solid #93805e; border-radius:9px; padding:10px; background:#ffffff25; }
+.angelssword.sheet.actor .as-stat-card > strong { display:block; font-size:30px; }
+.angelssword.sheet.actor .as-stat-card h3 { font-size:15px; margin:0 0 5px; }
+.angelssword.sheet.actor .as-stat-card label { display:flex; align-items:center; gap:8px; margin-top:4px; }
+.angelssword.sheet.actor .as-stat-card input { min-width:0; width:60px; margin-left:auto; }
+.angelssword.sheet.actor .as-skill-row { display:grid; grid-template-columns:minmax(0,1fr) 30px; gap:4px; align-items:center; padding:4px 0; border-bottom:1px solid #93805e55; }
+.angelssword.sheet.actor .as-skill-row > button { border:0; background:transparent; text-align:left; line-height:24px; font-size:12px; }
+.angelssword.sheet.actor .as-skill-row label { grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; }
+.angelssword.sheet.actor .as-skill-row input { width:60px; }
+.angelssword.sheet.actor .as-stat-panel { min-width:0; }
+.angelssword.sheet.actor .sheet-tabs { display:flex; justify-content:space-around; }

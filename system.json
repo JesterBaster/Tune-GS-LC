@@ -1,0 +1,108 @@
+{
+  "id": "angelssword",
+  "title": "Angels Sword",
+  "description": "A custom TTRPG system.",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "13",
+    "maximum": "13"
+  },
+  "license": "LICENSE.txt",
+  "authors": [
+    {
+      "name": "T",
+      "url": "https://rpg.angelssword.com",
+      "email": "angelsswordstudiosemail"
+    }
+  ],
+  "esmodules": [
+    "module/simple.js"
+  ],
+  "styles": [
+    "styles/simple.css"
+  ],
+  "packs": [
+    {
+      "name": "monsters",
+      "label": "My Monsters",
+      "type": "Actor",
+      "path": "packs/monsters",
+      "system": "angelssword"
+    },
+    {
+      "name": "items",
+      "label": "My Items",
+      "type": "Item",
+      "path": "packs/items",
+      "system": "angelssword"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "hero": {
+        "htmlFields": [
+          "biography"
+        ]
+      },
+      "villain": {
+        "htmlFields": [
+          "biography"
+        ]
+      },
+      "pawn": {
+        "htmlFields": [
+          "biography"
+        ]
+      },
+      "character": {
+        "htmlFields": [
+          "biography"
+        ]
+      }
+    },
+    "Item": {
+      "weapon": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "spell": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "item": {
+        "htmlFields": [
+          "description"
+        ]
+      }
+    }
+  },
+  "socket": false,
+  "initiative": "max(0, 1d4 + @derived.initiative)",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "resources.health",
+  "secondaryTokenAttribute": "resources.mp",
+  "relationships": {
+    "recommends": [
+      {
+        "id": "dice-calculator",
+        "type": "module"
+      },
+      {
+        "id": "combat-tracker-dock",
+        "type": "module"
+      }
+    ]
+  }
+}

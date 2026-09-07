@@ -1,0 +1,25 @@
+{
+  "version": "0.13.1",
+  "counts": {
+    "race": 5,
+    "subrace": 43,
+    "class": 181,
+    "ability": 1219,
+    "breakthrough": 89,
+    "item": 206
+  },
+  "abilitySubsections": 107,
+  "archivedWorkbookOnly": 59,
+  "total": 1802,
+  "unresolvedReferences": [],
+  "detailFetchErrors": [],
+  "masterWorkbookCounts": {
+    "Classes": 159,
+    "All Abilities": 996,
+    "All Items": 189,
+    "Races": 46,
+    "Breakthroughs": 85
+  },
+  "sourceWorkbookVersion": "0.12.3",
+  "imagePolicy": "Store remote URLs; do not download or rehost images."
+}
