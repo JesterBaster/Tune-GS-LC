@@ -1,5 +1,7 @@
 # Angels Sword
 
+Made By tunatunafish
+
 A custom TTRPG game system for **Foundry VTT v13 and v14**.
 
 System ID: `angelssword` (two consecutive `s` characters — the folder name must match exactly).
